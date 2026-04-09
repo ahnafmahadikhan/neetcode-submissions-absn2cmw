@@ -1,0 +1,19 @@
+class Solution:
+
+    def encode(self, strs: List[str]) -> str:
+        s = ""
+        for i in strs:
+            s += str(len(i)) + "#" + i
+        return s
+
+    def decode(self, s: str) -> List[str]:
+        answer = []
+        i = 0
+        while i<len(s):
+            j = i
+            while s[j]!="#":
+                j += 1
+            lenght = int(s[i:j])
+            answer.append(s[j+1:j+1+lenght])
+            i = j + 1 + lenght
+        return answer 
